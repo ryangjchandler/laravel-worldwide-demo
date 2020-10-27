@@ -30,6 +30,9 @@ jobs:
       - name: Notify Slack
         uses: 8398a7/action-slack@v3
         with:
+          fields: message,action,workflow,job,took
           status: ${{ job.status }}
+          job_name: Run PHPUnit Suite
+          author_name: GitHub Actions
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
