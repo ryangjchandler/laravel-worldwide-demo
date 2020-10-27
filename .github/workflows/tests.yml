@@ -16,6 +16,12 @@ jobs:
           php-version: '7.4'
           extensions: ctype, bcmath, fileinfo, json, mbstring, openssl, pdo, tokenizer, xml
 
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
 
