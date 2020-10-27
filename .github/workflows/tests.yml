@@ -26,3 +26,8 @@ jobs:
 
       - name: Run test suite
         run: php artisan test
+
+      - name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
