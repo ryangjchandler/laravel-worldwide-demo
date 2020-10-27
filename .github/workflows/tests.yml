@@ -19,5 +19,10 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist
 
+      - name: Setup environment
+        run: |
+          cp .env.ci .env
+          php artisan key:generate
+
       - name: Run test suite
         run: php artisan test
