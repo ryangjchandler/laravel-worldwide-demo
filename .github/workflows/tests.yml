@@ -42,3 +42,4 @@ jobs:
           author_name: GitHub Actions
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: failure()
